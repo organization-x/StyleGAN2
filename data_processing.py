@@ -4,8 +4,8 @@ import os
 
 input_dir = "./raw_data"
 out_dir = "./processed_data"
-files = glob.glob("./raw_data/images/*")
-IMG_SIZE = 512
+files = glob.glob("./raw_data/*")
+IMG_SIZE = 256
 
 try:
     os.mkdir('./processed_data')
@@ -13,7 +13,7 @@ except Exception:
     print('processed data directory found')
 
 counter = 0
-for file in glob.glob(input_dir):
+for file in files:
     try:
         raw_img = cv2.imread(file)
         processed_img = cv2.resize(raw_img, (IMG_SIZE, IMG_SIZE), interpolation=cv2.INTER_AREA)
